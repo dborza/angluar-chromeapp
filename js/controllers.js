@@ -16,10 +16,14 @@ appControllers.controller('TestController', ['$scope', '$sce',
 
     $scope.books = []
 
-    for (var i = 1; i <= 14; i++) {
+    for (var i = 1; i <= 13; i++) {
       $scope.books.push({
         title: "title" + i,
         path: "img/phones/" + i + ".jpg"
       });
     }
+
+    $scope.cols = 2;
+    $scope.rows = Math.ceil($scope.books.length / $scope.cols);
+
   }]);

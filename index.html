@@ -9,11 +9,12 @@
 </head>
 <body>
 
-{{testValue}}
-
-{{books}}
-
-<img ng-src="{{imageUrl}}">
+<table>
+    <tr ng-repeat="book in books">
+        <td>book</td>
+        <td><img ng-src="{{book.path}}"></td>
+    </tr>
+</table>
 
 </body>
 </html>
