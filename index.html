@@ -12,7 +12,7 @@
 <table>
     <tr ng-repeat="book in books">
         <td>{{book.title}}</td>
-        <td><img ng-src="{{book.path}}" ng-click="changeTitle(book, 'cacaMaca')"></td>
+        <td><a href="#/phones/{{book.title}}" class="thumb"><img ng-src="{{book.path}}" ng-click="changeTitle(book, 'caca-maca')"></a></td>
     </tr>
 </table>
 
