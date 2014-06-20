@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="appModule">
+<html ng-app="appModule" ng-controller="TestController">
 <head lang="en">
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
@@ -9,16 +9,6 @@
     <title>Fake title</title>
 </head>
 <body>
-
-<div ng-view>
-</div>
-
-<table ng-controller="BookListCtrl">
-    <tr ng-repeat="book in books">
-        <td>{{book.title}}</td>
-        <td><img ng-src="{{book.path}}" ng-click="loadPageDetails(book)"></td>
-    </tr>
-</table>
 
 </body>
 </html>

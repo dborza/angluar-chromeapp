@@ -2,19 +2,10 @@
 
 var appControllers = angular.module('appControllers', []);
 
-appControllers.controller('TestController', ['$scope', '$sce',
-  function ($scope, $sce) {
-    $scope.testValue = 'caca-maca-value';
-    $scope.imageUrl = 'img/phones/1.jpg';
+appControllers.controller('BookListCtrl', ['$scope', '$location',
+  function ($scope, $location) {
 
-    $scope.trustAsResourceUrl = function (url) {
-      console.log("running trustAsResourceUrl: " + url);
-      console.log("sce service: ", $sce);
-      console.log($sce.trustAsResourceUrl("img/phones/dell-venue.0.jpg"));
-      return $sce.trustAsResourceUrl(url);
-    }
-
-    $scope.books = []
+    $scope.books = [];
 
     for (var i = 1; i <= 13; i++) {
       $scope.books.push({
@@ -23,11 +14,22 @@ appControllers.controller('TestController', ['$scope', '$sce',
       });
     }
 
-    $scope.cols = 2;
-    $scope.rows = Math.ceil($scope.books.length / $scope.cols);
-
-    $scope.changeTitle = function(book, newTitle) {
+    $scope.changeTitle = function (book, newTitle) {
       book.title = newTitle;
     };
 
+    $scope.loadPageDetails = function (book) {
+      console.log(">>> loadPageDetails for book: ", book);
+      var url = '/books/' + book.title;
+      console.log(">>> url: " + url);
+      $location.path(url);
+    };
+
+  }]);
+
+appControllers.controller('BookDetailsCtrl', ['$scope', '$routeParams',
+  function ($scope, $routeParams) {
+    console.log(">>>> CALLED BookDetailsCtrl");
+
+    $scope.message = "YOU ARE IN PHONE DETAILS :-)"
   }]);
