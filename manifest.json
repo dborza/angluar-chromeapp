@@ -5,11 +5,11 @@
   "manifest_version": 2,
   "app": {
     "background": {
-      "scripts": ["background.js"]
+      "scripts": ["js/background.js"]
     }
   },
   "icons": {
-    "16": "calculator-16.png",
-    "128": "calculator-128.png"
+    "16": "img/calculator-16.png",
+    "128": "img/calculator-128.png"
   }
 }
