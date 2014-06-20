@@ -26,4 +26,8 @@ appControllers.controller('TestController', ['$scope', '$sce',
     $scope.cols = 2;
     $scope.rows = Math.ceil($scope.books.length / $scope.cols);
 
+    $scope.changeTitle = function(book, newTitle) {
+      book.title = newTitle;
+    };
+
   }]);

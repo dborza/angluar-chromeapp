@@ -11,8 +11,8 @@
 
 <table>
     <tr ng-repeat="book in books">
-        <td>book</td>
-        <td><img ng-src="{{book.path}}"></td>
+        <td>{{book.title}}</td>
+        <td><img ng-src="{{book.path}}" ng-click="changeTitle(book, 'cacaMaca')"></td>
     </tr>
 </table>
 
