@@ -7,12 +7,8 @@ var appModule = angular.module('appModule', [
 appModule.config([
   '$compileProvider',
   function ($compileProvider) {
-    var currentImgSrcSanitizationWhitelist = $compileProvider.imgSrcSanitizationWhitelist();
-    var newImgSrcSanitizationWhiteList = currentImgSrcSanitizationWhitelist.toString().slice(0, -1)
-      + '|chrome-extension:'
-      + currentImgSrcSanitizationWhitelist.toString().slice(-1);
-
-    console.log("Changing imgSrcSanitizationWhiteList from " + currentImgSrcSanitizationWhitelist + " to " + newImgSrcSanitizationWhiteList);
-    $compileProvider.imgSrcSanitizationWhitelist(newImgSrcSanitizationWhiteList);
+    //  Default imgSrcSanitizationWhitelist: /^\s*(https?|ftp|file):|data:image\//
+    //  chrome-extension: will be added to the end of the expression
+    $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|chrome-extension):|data:image\//);
   }
 ]);
